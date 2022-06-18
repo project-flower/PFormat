@@ -28,20 +28,108 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.buttonEdit = new System.Windows.Forms.Button();
+            this.buttonCopy = new System.Windows.Forms.Button();
+            this.buttonInitialize = new System.Windows.Forms.Button();
+            this.buttonLoad = new System.Windows.Forms.Button();
+            this.buttonSave = new System.Windows.Forms.Button();
+            this.groupsPane = new PFormat.GroupsPane();
             this.SuspendLayout();
+            // 
+            // buttonEdit
+            // 
+            this.buttonEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonEdit.Location = new System.Drawing.Point(12, 415);
+            this.buttonEdit.Name = "buttonEdit";
+            this.buttonEdit.Size = new System.Drawing.Size(75, 23);
+            this.buttonEdit.TabIndex = 1;
+            this.buttonEdit.Text = "固定(&F)";
+            this.buttonEdit.UseVisualStyleBackColor = true;
+            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
+            // 
+            // buttonCopy
+            // 
+            this.buttonCopy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonCopy.Location = new System.Drawing.Point(93, 415);
+            this.buttonCopy.Name = "buttonCopy";
+            this.buttonCopy.Size = new System.Drawing.Size(75, 23);
+            this.buttonCopy.TabIndex = 2;
+            this.buttonCopy.Text = "コピー(&C)";
+            this.buttonCopy.UseVisualStyleBackColor = true;
+            this.buttonCopy.Click += new System.EventHandler(this.buttonCopy_Click);
+            // 
+            // buttonInitialize
+            // 
+            this.buttonInitialize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonInitialize.Location = new System.Drawing.Point(551, 415);
+            this.buttonInitialize.Name = "buttonInitialize";
+            this.buttonInitialize.Size = new System.Drawing.Size(75, 23);
+            this.buttonInitialize.TabIndex = 3;
+            this.buttonInitialize.Text = "新規作成(&I)";
+            this.buttonInitialize.UseVisualStyleBackColor = true;
+            this.buttonInitialize.Click += new System.EventHandler(this.buttonInitialize_Click);
+            // 
+            // buttonLoad
+            // 
+            this.buttonLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonLoad.Location = new System.Drawing.Point(632, 415);
+            this.buttonLoad.Name = "buttonLoad";
+            this.buttonLoad.Size = new System.Drawing.Size(75, 23);
+            this.buttonLoad.TabIndex = 4;
+            this.buttonLoad.Text = "読み込み(&L)";
+            this.buttonLoad.UseVisualStyleBackColor = true;
+            this.buttonLoad.Click += new System.EventHandler(this.buttonLoad_Click);
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSave.Location = new System.Drawing.Point(713, 415);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(75, 23);
+            this.buttonSave.TabIndex = 5;
+            this.buttonSave.Text = "保存(&S)";
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
+            // groupsPane
+            // 
+            this.groupsPane.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupsPane.DataBindings.Add(new System.Windows.Forms.Binding("DefaultGroupName", global::PFormat.Properties.Settings.Default, "DefaultGroupName", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.groupsPane.DefaultGroupName = global::PFormat.Properties.Settings.Default.DefaultGroupName;
+            this.groupsPane.Location = new System.Drawing.Point(12, 12);
+            this.groupsPane.Name = "groupsPane";
+            this.groupsPane.Size = new System.Drawing.Size(776, 397);
+            this.groupsPane.TabIndex = 6;
+            this.groupsPane.DialogRequired += new PFormat.Events.DialogRequiredEventHandler(this.groupsPane_DialogRequired);
+            this.groupsPane.EditableChanged += new PFormat.Events.EditableChangedEventHandler(this.groupsPane_EditableChanged);
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.groupsPane);
+            this.Controls.Add(this.buttonSave);
+            this.Controls.Add(this.buttonLoad);
+            this.Controls.Add(this.buttonInitialize);
+            this.Controls.Add(this.buttonCopy);
+            this.Controls.Add(this.buttonEdit);
             this.Name = "FormMain";
-            this.Text = "FormMain";
+            this.Text = "PFormat";
+            this.Shown += new System.EventHandler(this.shown);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+        private System.Windows.Forms.Button buttonEdit;
+        private System.Windows.Forms.Button buttonCopy;
+        private System.Windows.Forms.Button buttonInitialize;
+        private System.Windows.Forms.Button buttonLoad;
+        private System.Windows.Forms.Button buttonSave;
+        private GroupsPane groupsPane;
     }
 }
 
