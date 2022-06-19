@@ -80,6 +80,7 @@ namespace PFormat
         {
             FieldName = string.Empty;
             Values = new string[0];
+            Value = string.Empty;
         }
 
         public void CopyTo(FieldEditor destination)
