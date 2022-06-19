@@ -43,7 +43,11 @@ namespace PFormat
             set => textBoxName.Text = value;
         }
 
-        public string Value { get => comboBoxValue.Text; }
+        public string Value
+        {
+            get => comboBoxValue.Text;
+            set { comboBoxValue.Text = value; }
+        }
 
         public IEnumerable<string> Values
         {
@@ -87,15 +91,18 @@ namespace PFormat
         {
             destination.FieldName = FieldName;
             destination.Values = Values;
+            destination.Value = Value;
         }
 
         public void SwapTo(FieldEditor target)
         {
             string fieldName = target.FieldName;
             IEnumerable<string> values = target.Values.ToArray();
+            string value = target.Value;
             CopyTo(target);
             FieldName = fieldName;
             Values = values;
+            Value = value;
         }
 
         #endregion
