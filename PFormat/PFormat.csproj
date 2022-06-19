@@ -161,4 +161,9 @@
     <Content Include="PFormat.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>IF "$(ConfigurationName)"=="Release" (
+    COPY "$(SolutionDir)README.txt" "$(TargetDir)"
+)</PostBuildEvent>
+  </PropertyGroup>
 </Project>
