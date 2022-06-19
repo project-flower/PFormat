@@ -40,7 +40,7 @@ namespace PFormat
         public string FieldName
         {
             get => textBoxName.Text;
-            set => textBoxName.Text = value;
+            set { textBoxName.Text = value; }
         }
 
         public string Value
