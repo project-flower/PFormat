@@ -53,7 +53,7 @@ namespace PFormat
             foreach (TabPage tabPage in tabPages)
             {
                 var editor = tabPage.Controls[0] as FormatEditor;
-                result.Add((editor.Title, editor.Value));
+                result.Add((editor.Title, editor.Format));
             }
 
             return result.ToArray();
