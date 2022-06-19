@@ -57,7 +57,7 @@ namespace PFormat
             }
 
             result.Location = location;
-            result.Width = (Width - marginLeft - Math.Max(Padding.Right, result.Margin.Right));
+            result.Width = (ClientSize.Width - marginLeft - Math.Max(Padding.Right, result.Margin.Right));
             AddEventHandlers(result);
             Controls.Add(result);
             return result;
