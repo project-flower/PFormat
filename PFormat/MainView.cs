@@ -61,18 +61,9 @@ namespace PFormat
             fieldsPane.SetEditable(editable);
             formatsPane.SetEditable(editable);
 
-            try
+            if (!editable)
             {
-                if (!editable)
-                {
-                    UpdateFields();
-                }
-            }
-            catch
-            {
-                fieldsPane.SetEditable(!editable);
-                formatsPane.SetEditable(!editable);
-                throw;
+                UpdateFields();
             }
 
             this.editable = editable;

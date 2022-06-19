@@ -7,8 +7,7 @@ namespace PFormat.Events
     {
         #region Public Fields
 
-        //public Dictionary<string, string> Fields = new Dictionary<string, string>();
-        public Dictionary<string, string> Fields;
+        public Dictionary<string, string> Fields = new Dictionary<string, string>();
 
         #endregion
     }
