@@ -11,7 +11,7 @@ namespace PFormat
         {
             #region Public Fields
 
-            public (string, string[])[] Fields;
+            public (string, string[], string)[] Fields;
             public (string, string)[] Formats;
             public string Name;
 

@@ -82,13 +82,13 @@ namespace PFormat
             return result;
         }
 
-        public (string, string[])[] GetApplicationData()
+        public (string, string[], string)[] GetApplicationData()
         {
-            var result = new List<(string, string[])>(Controls.Count);
+            var result = new List<(string, string[], string)>(Controls.Count);
 
             foreach (FieldEditor fieldEditor in Controls)
             {
-                result.Add((fieldEditor.FieldName, fieldEditor.Values.ToArray()));
+                result.Add((fieldEditor.FieldName, fieldEditor.Values.ToArray(), fieldEditor.Value));
             }
 
             return result.ToArray();
@@ -96,7 +96,7 @@ namespace PFormat
 
         public void Initialize()
         {
-            SetApplicationData(new (string, string[])[0]);
+            SetApplicationData(new (string, string[], string)[0]);
         }
 
         public void Insert(int index)
@@ -145,18 +145,19 @@ namespace PFormat
             }
         }
 
-        public void SetApplicationData((string, string[])[] fields)
+        public void SetApplicationData((string, string[], string)[] fields)
         {
             while (Controls.Count > 0)
             {
                 RemoveAt(0, true);
             }
 
-            foreach ((string, string[]) element in fields)
+            foreach ((string, string[], string) element in fields)
             {
                 FieldEditor fieldEditor = AddNew();
                 fieldEditor.FieldName = element.Item1;
                 fieldEditor.Values = element.Item2;
+                fieldEditor.Value = element.Item3;
             }
 
             if (Controls.Count < 1) AddNew();

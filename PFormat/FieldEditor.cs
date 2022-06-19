@@ -63,11 +63,6 @@ namespace PFormat
                     comboBoxValue.Items.Add(element);
                 }
 
-                if (comboBoxValue.Items.Count > 0)
-                {
-                    comboBoxValue.SelectedIndex = 0;
-                }
-
                 comboBoxValue.EndUpdate();
             }
         }
