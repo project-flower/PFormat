@@ -29,12 +29,6 @@ namespace PFormat
 
         #region Private Methods
 
-        private void ChangeEditable(bool editable)
-        {
-            this.editable = editable;
-            buttonConvert.Text = (this.editable ? buttonConvertDefaultText : "編集(&E)");
-        }
-
         private void DoCopy()
         {
             try
@@ -107,6 +101,13 @@ namespace PFormat
             }
         }
 
+        private void SetEditable(bool editable)
+        {
+            this.editable = editable;
+            buttonConvert.Text = (this.editable ? buttonConvertDefaultText : "編集(&E)");
+            buttonInitialize.Enabled = this.editable;
+        }
+
         private void ShowErrorMessage(string message)
         {
             ShowMessage(message, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -139,7 +140,7 @@ namespace PFormat
                 return;
             }
 
-            ChangeEditable(!editable);
+            SetEditable(!editable);
         }
 
         #endregion
@@ -211,7 +212,7 @@ namespace PFormat
 
         private void groupsPane_EditableChanged(object sender, EditableChangedEventArgs e)
         {
-            ChangeEditable(e.Editable);
+            SetEditable(e.Editable);
         }
 
         private void shown(object sender, EventArgs e)
