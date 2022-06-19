@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.groupsPane = new PFormat.GroupsPane();
-            this.buttonEdit = new System.Windows.Forms.Button();
+            this.buttonConvert = new System.Windows.Forms.Button();
             this.buttonCopy = new System.Windows.Forms.Button();
             this.buttonInitialize = new System.Windows.Forms.Button();
             this.buttonLoad = new System.Windows.Forms.Button();
@@ -50,16 +50,16 @@
             this.groupsPane.DialogRequired += new PFormat.Events.DialogRequiredEventHandler(this.groupsPane_DialogRequired);
             this.groupsPane.EditableChanged += new PFormat.Events.EditableChangedEventHandler(this.groupsPane_EditableChanged);
             // 
-            // buttonEdit
+            // buttonConvert
             // 
-            this.buttonEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonEdit.Location = new System.Drawing.Point(12, 415);
-            this.buttonEdit.Name = "buttonEdit";
-            this.buttonEdit.Size = new System.Drawing.Size(75, 23);
-            this.buttonEdit.TabIndex = 1;
-            this.buttonEdit.Text = "固定(&F)";
-            this.buttonEdit.UseVisualStyleBackColor = true;
-            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
+            this.buttonConvert.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonConvert.Location = new System.Drawing.Point(12, 415);
+            this.buttonConvert.Name = "buttonConvert";
+            this.buttonConvert.Size = new System.Drawing.Size(75, 23);
+            this.buttonConvert.TabIndex = 1;
+            this.buttonConvert.Text = "変換(&V)";
+            this.buttonConvert.UseVisualStyleBackColor = true;
+            this.buttonConvert.Click += new System.EventHandler(this.buttonConvert_Click);
             // 
             // buttonCopy
             // 
@@ -114,7 +114,7 @@
             this.Controls.Add(this.buttonLoad);
             this.Controls.Add(this.buttonInitialize);
             this.Controls.Add(this.buttonCopy);
-            this.Controls.Add(this.buttonEdit);
+            this.Controls.Add(this.buttonConvert);
             this.Controls.Add(this.groupsPane);
             this.Name = "FormMain";
             this.Text = "PFormat";
@@ -125,7 +125,7 @@
 
         #endregion
         private GroupsPane groupsPane;
-        private System.Windows.Forms.Button buttonEdit;
+        private System.Windows.Forms.Button buttonConvert;
         private System.Windows.Forms.Button buttonCopy;
         private System.Windows.Forms.Button buttonInitialize;
         private System.Windows.Forms.Button buttonLoad;

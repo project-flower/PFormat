@@ -11,7 +11,7 @@ namespace PFormat
     {
         #region Private Fields
 
-        private readonly string buttonEditDefaultText;
+        private readonly string buttonConvertDefaultText;
         private bool dialogShowing = false;
         private bool editable = true;
 
@@ -22,7 +22,7 @@ namespace PFormat
         public FormMain()
         {
             InitializeComponent();
-            buttonEditDefaultText = buttonEdit.Text;
+            buttonConvertDefaultText = buttonConvert.Text;
         }
 
         #endregion
@@ -32,7 +32,7 @@ namespace PFormat
         private void ChangeEditable(bool editable)
         {
             this.editable = editable;
-            buttonEdit.Text = (this.editable ? buttonEditDefaultText : "編集(&E)");
+            buttonConvert.Text = (this.editable ? buttonConvertDefaultText : "編集(&E)");
         }
 
         private void DoCopy()
@@ -146,14 +146,14 @@ namespace PFormat
 
         // Designer's Methods
 
+        private void buttonConvert_Click(object sender, EventArgs e)
+        {
+            TryChangeEditable();
+        }
+
         private void buttonCopy_Click(object sender, EventArgs e)
         {
             DoCopy();
-        }
-
-        private void buttonEdit_Click(object sender, EventArgs e)
-        {
-            TryChangeEditable();
         }
 
         private void buttonInitialize_Click(object sender, EventArgs e)
