@@ -192,6 +192,7 @@ namespace PFormat
         private void RemoveEventHandler(FormatEditor formatEditor)
         {
             formatEditor.ButtonCloseClick -= formatEditor_ButtonCloseClick;
+            formatEditor.FieldsRequired += formatEditor_FieldsRequired;
             formatEditor.TitleChanged -= formatEditor_TitleChanged;
         }
 
