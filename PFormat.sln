@@ -5,6 +5,8 @@ VisualStudioVersion = 17.2.32602.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PFormat", "PFormat\PFormat.csproj", "{4ABB0059-8AA1-4463-85A0-657D51FA91BE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PFormatTests", "PFormatTests\PFormatTests.csproj", "{1EF0F7F8-DA52-4AA4-AFBA-3B9C28146C1E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{4ABB0059-8AA1-4463-85A0-657D51FA91BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4ABB0059-8AA1-4463-85A0-657D51FA91BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4ABB0059-8AA1-4463-85A0-657D51FA91BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EF0F7F8-DA52-4AA4-AFBA-3B9C28146C1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EF0F7F8-DA52-4AA4-AFBA-3B9C28146C1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EF0F7F8-DA52-4AA4-AFBA-3B9C28146C1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EF0F7F8-DA52-4AA4-AFBA-3B9C28146C1E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
