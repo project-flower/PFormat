@@ -22,6 +22,7 @@ namespace PFormat
         public FormMain()
         {
             InitializeComponent();
+            MinimumSize = Size;
             buttonConvertDefaultText = buttonConvert.Text;
         }
 
