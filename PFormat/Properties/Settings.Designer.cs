@@ -25,6 +25,18 @@ namespace PFormat.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("コピー")]
+        public string CopiedGroupSuffix {
+            get {
+                return ((string)(this["CopiedGroupSuffix"]));
+            }
+            set {
+                this["CopiedGroupSuffix"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("グループ")]
         public string DefaultGroupName {
             get {

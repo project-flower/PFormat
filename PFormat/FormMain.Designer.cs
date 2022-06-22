@@ -41,7 +41,9 @@
             this.groupsPane.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupsPane.CopiedGroupSuffix = global::PFormat.Properties.Settings.Default.CopiedGroupSuffix;
             this.groupsPane.DataBindings.Add(new System.Windows.Forms.Binding("DefaultGroupName", global::PFormat.Properties.Settings.Default, "DefaultGroupName", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.groupsPane.DataBindings.Add(new System.Windows.Forms.Binding("CopiedGroupSuffix", global::PFormat.Properties.Settings.Default, "CopiedGroupSuffix", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.groupsPane.DefaultGroupName = global::PFormat.Properties.Settings.Default.DefaultGroupName;
             this.groupsPane.Location = new System.Drawing.Point(12, 12);
             this.groupsPane.Name = "groupsPane";

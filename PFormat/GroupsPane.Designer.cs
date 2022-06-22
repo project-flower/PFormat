@@ -28,12 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.comboBoxNames = new PFormat.CustomComboBox();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
-            this.panelMainView = new System.Windows.Forms.Panel();
             this.buttonRename = new System.Windows.Forms.Button();
-            this.comboBoxNames = new PFormat.CustomComboBox();
+            this.buttonCopy = new System.Windows.Forms.Button();
+            this.panelMainView = new System.Windows.Forms.Panel();
             this.SuspendLayout();
+            // 
+            // comboBoxNames
+            // 
+            this.comboBoxNames.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxNames.FormattingEnabled = true;
+            this.comboBoxNames.Location = new System.Drawing.Point(3, 3);
+            this.comboBoxNames.Name = "comboBoxNames";
+            this.comboBoxNames.Size = new System.Drawing.Size(594, 20);
+            this.comboBoxNames.TabIndex = 0;
+            this.comboBoxNames.SelectedIndexChanged += new System.EventHandler(this.comboBoxNames_SelectedIndexChanged);
             // 
             // buttonAdd
             // 
@@ -55,6 +67,26 @@
             this.buttonDelete.UseVisualStyleBackColor = true;
             this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
+            // buttonRename
+            // 
+            this.buttonRename.Location = new System.Drawing.Point(165, 29);
+            this.buttonRename.Name = "buttonRename";
+            this.buttonRename.Size = new System.Drawing.Size(75, 23);
+            this.buttonRename.TabIndex = 3;
+            this.buttonRename.Text = "名前を変更";
+            this.buttonRename.UseVisualStyleBackColor = true;
+            this.buttonRename.Click += new System.EventHandler(this.buttonRename_Click);
+            // 
+            // buttonCopy
+            // 
+            this.buttonCopy.Location = new System.Drawing.Point(246, 29);
+            this.buttonCopy.Name = "buttonCopy";
+            this.buttonCopy.Size = new System.Drawing.Size(75, 23);
+            this.buttonCopy.TabIndex = 4;
+            this.buttonCopy.Text = "コピー";
+            this.buttonCopy.UseVisualStyleBackColor = true;
+            this.buttonCopy.Click += new System.EventHandler(this.buttonCopy_Click);
+            // 
             // panelMainView
             // 
             this.panelMainView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -63,35 +95,15 @@
             this.panelMainView.Location = new System.Drawing.Point(3, 58);
             this.panelMainView.Name = "panelMainView";
             this.panelMainView.Size = new System.Drawing.Size(594, 339);
-            this.panelMainView.TabIndex = 3;
-            // 
-            // buttonRename
-            // 
-            this.buttonRename.Location = new System.Drawing.Point(165, 29);
-            this.buttonRename.Name = "buttonRename";
-            this.buttonRename.Size = new System.Drawing.Size(75, 23);
-            this.buttonRename.TabIndex = 4;
-            this.buttonRename.Text = "名前を変更";
-            this.buttonRename.UseVisualStyleBackColor = true;
-            this.buttonRename.Click += new System.EventHandler(this.buttonRename_Click);
-            // 
-            // comboBoxNames
-            // 
-            this.comboBoxNames.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBoxNames.FormattingEnabled = true;
-            this.comboBoxNames.Location = new System.Drawing.Point(3, 3);
-            this.comboBoxNames.Name = "comboBoxNames";
-            this.comboBoxNames.Size = new System.Drawing.Size(594, 20);
-            this.comboBoxNames.TabIndex = 0;
-            this.comboBoxNames.SelectedIndexChanged += new System.EventHandler(this.comboBoxNames_SelectedIndexChanged);
+            this.panelMainView.TabIndex = 5;
             // 
             // GroupsPane
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.buttonRename);
             this.Controls.Add(this.panelMainView);
+            this.Controls.Add(this.buttonCopy);
+            this.Controls.Add(this.buttonRename);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.comboBoxNames);
@@ -106,7 +118,8 @@
         private CustomComboBox comboBoxNames;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Button buttonDelete;
-        private System.Windows.Forms.Panel panelMainView;
         private System.Windows.Forms.Button buttonRename;
+        private System.Windows.Forms.Button buttonCopy;
+        private System.Windows.Forms.Panel panelMainView;
     }
 }

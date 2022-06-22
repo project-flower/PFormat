@@ -24,6 +24,7 @@ namespace PFormat
 
         #region Public Properties
 
+        public string CopiedGroupSuffix { get; set; }
         public string DefaultGroupName { get; set; }
         public event DialogRequiredEventHandler DialogRequired = delegate { };
         public event EditableChangedEventHandler EditableChanged = delegate { };
@@ -115,6 +116,7 @@ namespace PFormat
             buttonAdd.Enabled = editable;
             buttonDelete.Enabled = editable;
             buttonRename.Enabled = editable;
+            buttonCopy.Enabled = editable;
             this.editable = editable;
         }
 
@@ -192,6 +194,26 @@ namespace PFormat
             }
         }
 
+        private void CopyGroup(MainView mainView)
+        {
+            DoWithSuppressEvent(delegate
+            {
+                try
+                {
+                    string groupName = GenerateCopiedGroupName(mainView.GroupName);
+                    var newView = AddGroup(groupName, false);
+                    ApplicationData.Group group = mainView.GetApplicationData();
+                    group.Name = groupName;
+                    newView.SetApplicationData(group);
+                    ChangeGroup(comboBoxNames.Items.Count - 1);
+                }
+                catch (Exception exception)
+                {
+                    DialogRequired(this, new DialogRequiredEventArgs(exception.Message, MessageBoxButtons.OK, MessageBoxIcon.Error));
+                }
+            });
+        }
+
         private bool DoIfCurrentlyDisplayed(DoForMainView function)
         {
             MainView mainView = GetCurrentView();
@@ -209,11 +231,21 @@ namespace PFormat
             comboBoxNames.SelectedIndexChanged += comboBoxNames_SelectedIndexChanged;
         }
 
+        private string GenerateCopiedGroupName(string groupName)
+        {
+            return GenerateUniqueGroupName($"{groupName} {CopiedGroupSuffix}");
+        }
+
         private string GenerateDefaultGroupName()
         {
-            for (uint i = 1; i < uint.MaxValue; ++i)
+            return GenerateUniqueGroupName(DefaultGroupName);
+        }
+
+        private string GenerateUniqueGroupName(string groupName)
+        {
+            for (uint i = 1; i <= uint.MaxValue; ++i)
             {
-                string result = $"{DefaultGroupName} {i}";
+                string result = $"{groupName} {i}";
                 bool found = false;
 
                 foreach (ObjectHolder<MainView> items in comboBoxNames.Items)
@@ -285,6 +317,15 @@ namespace PFormat
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             AddNewGroup(true);
+        }
+
+        private void buttonCopy_Click(object sender, EventArgs e)
+        {
+            MainView mainView = GetCurrentView();
+
+            if (mainView == null) return;
+
+            CopyGroup(mainView);
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
