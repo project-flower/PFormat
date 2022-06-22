@@ -37,23 +37,6 @@ namespace PFormat
             InitializeComponent();
         }
 
-        private bool DoIfCurrentlyDisplayed(DoForMainView function)
-        {
-            MainView mainView = GetCurrentView();
-
-            if (mainView == null) return false;
-
-            function(mainView);
-            return true;
-        }
-
-        private void DoWithSuppressEvent(DoSomething function)
-        {
-            comboBoxNames.SelectedIndexChanged -= comboBoxNames_SelectedIndexChanged;
-            function();
-            comboBoxNames.SelectedIndexChanged += comboBoxNames_SelectedIndexChanged;
-        }
-
         public ApplicationData GetApplicationData()
         {
             ObjectCollection items = comboBoxNames.Items;
@@ -207,6 +190,23 @@ namespace PFormat
                 DialogRequired(this, new DialogRequiredEventArgs($"フィールド \"{exception.Name}\"\r\nが重複しています。", MessageBoxButtons.OK, MessageBoxIcon.Error));
                 EditableChanged(this, new EditableChangedEventArgs(!editable));
             }
+        }
+
+        private bool DoIfCurrentlyDisplayed(DoForMainView function)
+        {
+            MainView mainView = GetCurrentView();
+
+            if (mainView == null) return false;
+
+            function(mainView);
+            return true;
+        }
+
+        private void DoWithSuppressEvent(DoSomething function)
+        {
+            comboBoxNames.SelectedIndexChanged -= comboBoxNames_SelectedIndexChanged;
+            function();
+            comboBoxNames.SelectedIndexChanged += comboBoxNames_SelectedIndexChanged;
         }
 
         private string GenerateDefaultGroupName()
