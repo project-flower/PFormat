@@ -77,6 +77,8 @@
             // 
             // comboBoxNames
             // 
+            this.comboBoxNames.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxNames.FormattingEnabled = true;
             this.comboBoxNames.Location = new System.Drawing.Point(3, 3);
             this.comboBoxNames.Name = "comboBoxNames";
