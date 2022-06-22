@@ -57,6 +57,7 @@
     <Compile Include="CustomComboBox.cs" />
     <Compile Include="Events\EditableChanged.cs" />
     <Compile Include="Events\FieldsRequired.cs" />
+    <Compile Include="Global.cs" />
     <Compile Include="ObjectHolder.cs" />
     <Compile Include="Events\DialogRequired.cs" />
     <Compile Include="Events\TextChanged.cs" />

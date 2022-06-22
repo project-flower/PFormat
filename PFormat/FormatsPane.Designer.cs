@@ -30,6 +30,7 @@
         {
             this.tabControl = new System.Windows.Forms.TabControl();
             this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonCopy = new System.Windows.Forms.Button();
             this.buttonUpdate = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -41,13 +42,13 @@
             this.tabControl.Location = new System.Drawing.Point(3, 32);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(144, 86);
+            this.tabControl.Size = new System.Drawing.Size(194, 136);
             this.tabControl.TabIndex = 0;
             // 
             // buttonAdd
             // 
             this.buttonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonAdd.Location = new System.Drawing.Point(72, 3);
+            this.buttonAdd.Location = new System.Drawing.Point(41, 3);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(75, 23);
             this.buttonAdd.TabIndex = 1;
@@ -55,13 +56,24 @@
             this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
+            // buttonCopy
+            // 
+            this.buttonCopy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCopy.Location = new System.Drawing.Point(122, 3);
+            this.buttonCopy.Name = "buttonCopy";
+            this.buttonCopy.Size = new System.Drawing.Size(75, 23);
+            this.buttonCopy.TabIndex = 2;
+            this.buttonCopy.Text = "コピー";
+            this.buttonCopy.UseVisualStyleBackColor = true;
+            this.buttonCopy.Click += new System.EventHandler(this.buttonCopy_Click);
+            // 
             // buttonUpdate
             // 
             this.buttonUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonUpdate.Location = new System.Drawing.Point(72, 124);
+            this.buttonUpdate.Location = new System.Drawing.Point(122, 174);
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Size = new System.Drawing.Size(75, 23);
-            this.buttonUpdate.TabIndex = 2;
+            this.buttonUpdate.TabIndex = 3;
             this.buttonUpdate.Text = "更新";
             this.buttonUpdate.UseVisualStyleBackColor = true;
             this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
@@ -71,9 +83,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.buttonUpdate);
+            this.Controls.Add(this.buttonCopy);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.tabControl);
             this.Name = "FormatsPane";
+            this.Size = new System.Drawing.Size(200, 200);
             this.ResumeLayout(false);
 
         }
@@ -82,6 +96,7 @@
 
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.Button buttonCopy;
         private System.Windows.Forms.Button buttonUpdate;
     }
 }

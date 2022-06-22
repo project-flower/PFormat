@@ -53,6 +53,8 @@ namespace PFormat
             groupsPane.Initialze(false);
             Settings settings = Settings.Default;
             settings.Reload();
+            Global.CopiedSuffix = settings.CopiedSuffix;
+            Global.DefaultFormatName = settings.DefaultFormatName;
             string saveFileName = settings.SaveFileName;
 
             if (string.IsNullOrEmpty(saveFileName))

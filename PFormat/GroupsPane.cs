@@ -24,7 +24,6 @@ namespace PFormat
 
         #region Public Properties
 
-        public string CopiedGroupSuffix { get; set; }
         public string DefaultGroupName { get; set; }
         public event DialogRequiredEventHandler DialogRequired = delegate { };
         public event EditableChangedEventHandler EditableChanged = delegate { };
@@ -233,7 +232,7 @@ namespace PFormat
 
         private string GenerateCopiedGroupName(string groupName)
         {
-            return GenerateUniqueGroupName($"{groupName} {CopiedGroupSuffix}");
+            return GenerateUniqueGroupName($"{groupName} {Global.CopiedSuffix}");
         }
 
         private string GenerateDefaultGroupName()

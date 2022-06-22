@@ -2,8 +2,11 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="PFormat.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="CopiedGroupSuffix" Type="System.String" Scope="User">
+    <Setting Name="CopiedSuffix" Type="System.String" Scope="User">
       <Value Profile="(Default)">コピー</Value>
+    </Setting>
+    <Setting Name="DefaultFormatName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">フォーマット</Value>
     </Setting>
     <Setting Name="DefaultGroupName" Type="System.String" Scope="User">
       <Value Profile="(Default)">グループ</Value>

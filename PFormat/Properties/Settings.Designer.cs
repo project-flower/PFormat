@@ -26,12 +26,24 @@ namespace PFormat.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("コピー")]
-        public string CopiedGroupSuffix {
+        public string CopiedSuffix {
             get {
-                return ((string)(this["CopiedGroupSuffix"]));
+                return ((string)(this["CopiedSuffix"]));
             }
             set {
-                this["CopiedGroupSuffix"] = value;
+                this["CopiedSuffix"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("フォーマット")]
+        public string DefaultFormatName {
+            get {
+                return ((string)(this["DefaultFormatName"]));
+            }
+            set {
+                this["DefaultFormatName"] = value;
             }
         }
         
