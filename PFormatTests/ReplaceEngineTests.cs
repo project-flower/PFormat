@@ -32,6 +32,12 @@ namespace PFormat.Tests
             ReplaceTest2(Resources.Input1, Resources.Fields1, 3, Resources.Expected1);
         }
 
+        [TestCase]
+        public void ReplaceTest3()
+        {
+            ReplaceTest2(Resources.Input2, Resources.Fields2, 4, Resources.Expected2);
+        }
+
         #endregion
 
         #region Private Methods

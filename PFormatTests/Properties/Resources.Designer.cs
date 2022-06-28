@@ -74,6 +74,21 @@ namespace PFormatTests.Properties {
         }
         
         /// <summary>
+        ///   2022/1/1
+        ///
+        ///2023/02/02 0:00:00
+        ///
+        ///20240303
+        ///
+        ///2022/1/1 2023/02/02 0:00:00 20240303 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Expected2 {
+            get {
+                return ResourceManager.GetString("Expected2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   日時1	2022/1/1
         ///日時2	2023/2/2
         ///日時3	2024/3/3 に類似しているローカライズされた文字列を検索します。
@@ -81,6 +96,18 @@ namespace PFormatTests.Properties {
         internal static string Fields1 {
             get {
                 return ResourceManager.GetString("Fields1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Field 1	2022/1/1
+        ///Field 2	2023/2/2
+        ///Field 3	2024/3/3
+        ///Field 4	${Field 1} ${{DateTime}Field 2} ${{DateTime}{yyyyMMdd}Field 3} に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Fields2 {
+            get {
+                return ResourceManager.GetString("Fields2", resourceCulture);
             }
         }
         
@@ -94,6 +121,21 @@ namespace PFormatTests.Properties {
         internal static string Input1 {
             get {
                 return ResourceManager.GetString("Input1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   ${Field 1}
+        ///
+        ///${{DateTime}Field 2}
+        ///
+        ///${{DateTime}{yyyyMMdd}Field 3}
+        ///
+        ///${Field 4} に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Input2 {
+            get {
+                return ResourceManager.GetString("Input2", resourceCulture);
             }
         }
     }

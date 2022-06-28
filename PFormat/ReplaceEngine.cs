@@ -4,11 +4,11 @@ using System.Text.RegularExpressions;
 
 namespace PFormat
 {
-    internal static class ReplaceEngine
+    internal class ReplaceEngine
     {
         #region Private Fields
 
-        private static Dictionary<string, string> fields;
+        private Dictionary<string, string> fields;
 
         #endregion
 
@@ -21,41 +21,59 @@ namespace PFormat
 
         internal static string Replace(string format, Dictionary<string, string> fields)
         {
-            ReplaceEngine.fields = fields;
-            return Regex.Replace(format, "\\$[{]([{](?<options>[^}]+)[}])*(?<name>[^}]+)[}]", Replace);
+            var engine = new ReplaceEngine(fields);
+            engine.ExpandFields();
+            return engine.Replace(format);
         }
 
         #endregion
 
         #region Private Methods
 
-        private static bool IsSameAs(this string text1, string text2)
+        private ReplaceEngine(Dictionary<string, string> fields)
+        {
+            this.fields = fields;
+        }
+
+        private bool AreSame(string text1, string text2)
         {
             return (string.Compare(text1, text2, true) == 0);
         }
 
-        private static object Parse(string value, string type)
+        private void ExpandFields()
         {
-            if (type.IsSameAs("bool") || type.IsSameAs("boolean")) return bool.Parse(value);
-            else if (type.IsSameAs("byte")) return byte.Parse(value);
-            else if (type.IsSameAs("char")) return char.Parse(value);
-            else if (type.IsSameAs("datetime")) return DateTime.Parse(value);
-            else if (type.IsSameAs("decimal")) return decimal.Parse(value);
-            else if (type.IsSameAs("double")) return double.Parse(value);
-            else if (type.IsSameAs("float") || type.IsSameAs("single")) return float.Parse(value);
-            else if (type.IsSameAs("int") || type.IsSameAs("int32")) return int.Parse(value);
-            else if (type.IsSameAs("long") || type.IsSameAs("int64")) return long.Parse(value);
-            else if (type.IsSameAs("sbyte")) return sbyte.Parse(value);
-            else if (type.IsSameAs("short") || type.IsSameAs("int16")) return short.Parse(value);
-            else if (type.IsSameAs("timespan")) return TimeSpan.Parse(value);
-            else if (type.IsSameAs("uint") || type.IsSameAs("uint32")) return uint.Parse(value);
-            else if (type.IsSameAs("ulong") || type.IsSameAs("uint64")) return ulong.Parse(value);
-            else if (type.IsSameAs("ushort") || type.IsSameAs("uint16")) return ushort.Parse(value);
+            var result = new Dictionary<string, string>(fields.Count);
+
+            foreach (string key in fields.Keys)
+            {
+                result[key] = Replace(fields[key]);
+            }
+
+            fields = result;
+        }
+
+        private object Parse(string value, string type)
+        {
+            if (AreSame(type, "bool") || AreSame(type, "boolean")) return bool.Parse(value);
+            else if (AreSame(type, "byte")) return byte.Parse(value);
+            else if (AreSame(type, "char")) return char.Parse(value);
+            else if (AreSame(type, "datetime")) return DateTime.Parse(value);
+            else if (AreSame(type, "decimal")) return decimal.Parse(value);
+            else if (AreSame(type, "double")) return double.Parse(value);
+            else if (AreSame(type, "float") || AreSame(type, "single")) return float.Parse(value);
+            else if (AreSame(type, "int") || AreSame(type, "int32")) return int.Parse(value);
+            else if (AreSame(type, "long") || AreSame(type, "int64")) return long.Parse(value);
+            else if (AreSame(type, "sbyte")) return sbyte.Parse(value);
+            else if (AreSame(type, "short") || AreSame(type, "int16")) return short.Parse(value);
+            else if (AreSame(type, "timespan")) return TimeSpan.Parse(value);
+            else if (AreSame(type, "uint") || AreSame(type, "uint32")) return uint.Parse(value);
+            else if (AreSame(type, "ulong") || AreSame(type, "uint64")) return ulong.Parse(value);
+            else if (AreSame(type, "ushort") || AreSame(type, "uint16")) return ushort.Parse(value);
 
             return value;
         }
 
-        private static string Replace(Match match)
+        private string Replace(Match match)
         {
             GroupCollection groups = match.Groups;
             Group name = groups["name"];
@@ -80,6 +98,11 @@ namespace PFormat
 
             try { return string.Format($"{{0:{captures[1].Value}}}", value); }
             catch { return value.ToString(); }
+        }
+
+        private string Replace(string format)
+        {
+            return Regex.Replace(format, "\\$[{]([{](?<options>[^}]+)[}])*(?<name>[^}]+)[}]", Replace);
         }
 
         #endregion

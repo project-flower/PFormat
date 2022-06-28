@@ -124,10 +124,25 @@
 
 20240303</value>
   </data>
+  <data name="Expected2" xml:space="preserve">
+    <value>2022/1/1
+
+2023/02/02 0:00:00
+
+20240303
+
+2022/1/1 2023/02/02 0:00:00 20240303</value>
+  </data>
   <data name="Fields1" xml:space="preserve">
     <value>日時1	2022/1/1
 日時2	2023/2/2
 日時3	2024/3/3</value>
+  </data>
+  <data name="Fields2" xml:space="preserve">
+    <value>Field 1	2022/1/1
+Field 2	2023/2/2
+Field 3	2024/3/3
+Field 4	${Field 1} ${{DateTime}Field 2} ${{DateTime}{yyyyMMdd}Field 3}</value>
   </data>
   <data name="Input1" xml:space="preserve">
     <value>${日時1}
@@ -135,5 +150,14 @@
 ${{DateTime}日時2}
 
 ${{DateTime}{yyyyMMdd}日時3}</value>
+  </data>
+  <data name="Input2" xml:space="preserve">
+    <value>${Field 1}
+
+${{DateTime}Field 2}
+
+${{DateTime}{yyyyMMdd}Field 3}
+
+${Field 4}</value>
   </data>
 </root>
