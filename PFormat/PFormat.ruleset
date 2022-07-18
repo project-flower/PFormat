@@ -4,6 +4,7 @@
   <Rules AnalyzerId="Microsoft.CodeAnalysis.CSharp.Features" RuleNamespace="Microsoft.CodeAnalysis.CSharp.Features">
     <Rule Id="IDE0001" Action="Info" />
     <Rule Id="IDE0002" Action="Info" />
+    <Rule Id="IDE0003" Action="Info" />
     <Rule Id="IDE0004" Action="Info" />
     <Rule Id="IDE0005" Action="Info" />
     <Rule Id="IDE0059" Action="Info" />
